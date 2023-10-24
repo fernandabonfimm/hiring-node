@@ -1,11 +1,11 @@
 import React from "react";
-import { TableProps, InformationsArray } from "../../interfaces/tableProps";
+import { InformationsArray } from "../../interfaces/tableProps";
 
-const Table: React.FC<InformationsArray> = ({ informations }) => {
+const Table: React.FC<InformationsArray> = ({ stockName, price }) => {
   return (
     <div className="bg-white dark:bg-black p-4 rounded-lg shadow-md ">
       <h2 className="text-2xl font-semibold text-gray-800 mb-10 dark:text-white">
-        Tabela de comparação de preços
+        Tabela de preços atual da ação
       </h2>
       <table className="table-fixed w-full">
         <thead>
@@ -15,12 +15,10 @@ const Table: React.FC<InformationsArray> = ({ informations }) => {
           </tr>
         </thead>
         <tbody>
-          {informations.map((informations: TableProps) => (
-            <tr className="border-t">
-              <td className="border p-2 ">{informations.stockName}</td>
-              <td className="border p-2 ">{informations.price}</td>
-            </tr>
-          ))}
+          <tr className="border-t">
+            <td className="border p-2 ">{stockName}</td>
+            <td className="border p-2 ">{price}</td>
+          </tr>
         </tbody>
       </table>
     </div>

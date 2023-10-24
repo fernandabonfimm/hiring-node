@@ -5,7 +5,7 @@ const TableComparePrices: React.FC<InformationsArrayComparePrices> = ({ informat
     return (
       <div className="bg-white dark:bg-black p-4 rounded-lg shadow-md ">
         <h2 className="text-2xl font-semibold text-gray-800 mb-10 dark:text-white">
-          Tabela dos preços das ações
+          Tabela de comparação de preços
         </h2>
         <table className="table-fixed w-full">
           <thead>

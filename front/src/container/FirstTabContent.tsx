@@ -2,17 +2,20 @@ import React from "react";
 import Input from "../components/input";
 import Button from "../components/button";
 import Table from "../components/table";
-import {getCurrentPrice} from "../services/endpoints/stock";
+import { getCurrentPrice } from "../services/endpoints/stock";
+import { InformationsArray } from "../interfaces/tableProps";
 
 const FirstTabContent: React.FC = () => {
   const [stockName, setStockName] = React.useState("");
-  const [data, setData] = React.useState([]);
+  const [data, setData] = React.useState<InformationsArray>(
+    {} as InformationsArray
+  );
 
   const fetchPrice = async () => {
     try {
       const response = await getCurrentPrice(stockName);
-      const data = response.data;
-      setData(data);
+      setData(response.data);
+      console.log("Fetch realizado com sucesso", response.data);
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +29,9 @@ const FirstTabContent: React.FC = () => {
         type="string"
       />
       <Button onClick={fetchPrice} label="Buscar" />
-      <div className="w-full">{data.length > 0 && <Table informations={data} />}</div>
+      <div className="w-full">
+        <Table stockName={data.stockName} price={data.price} />
+      </div>
     </div>
   );
 };

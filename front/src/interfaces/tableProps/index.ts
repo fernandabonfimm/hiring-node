@@ -1,10 +1,6 @@
-export interface TableProps {
-  stockName: number;
-  price: number;
-}
-
 export interface InformationsArray {
-  informations: TableProps[];
+  stockName: string;
+  price: string;
 }
 
 export interface InformationsArrayComparePrices {
