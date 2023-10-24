@@ -80,7 +80,6 @@ exports.comparePrices = async (req, res) => {
     const symbolsToCompare = req.query.symbolsToCompare.split(",");
     const prices = {};
 
-    // Primeiro, obtenha os dados da ação principal (stockName)
     const responseMain = await axios.get(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockName}&interval=5min&apikey=${API_KEY}`
     );

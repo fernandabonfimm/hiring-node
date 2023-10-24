@@ -22,25 +22,23 @@ const ThirdTabContent: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-10">
-      <form onSubmit={handleSubmit}>
-        <Input
-          type="text"
-          placeholder="Nome da ação"
-          value={stockName}
-          onChange={(e) => setStockName(e.target.value)}
-        />
-        <Input
-          type="text"
-          placeholder="Símbolos para comparar (separados por vírgula)"
-          value={symbolsToCompare}
-          onChange={(e) => setSymbolsToCompare(e.target.value)}
-        />
-        <Button onClick={handleSubmit} label="Comparar Preços"/>
-      </form>
-      {Object.keys(result).length > 0 && (
-        <TableComparePrices informations={result} />
-      )}
+    <div className="w-full flex flex-col gap-5">
+      <Input
+        type="text"
+        placeholder="Nome da ação"
+        value={stockName}
+        onChange={(e) => setStockName(e.target.value)}
+      />
+      <Input
+        type="text"
+        placeholder="Símbolos para comparar (separados por vírgula)"
+        value={symbolsToCompare}
+        onChange={(e) => setSymbolsToCompare(e.target.value)}
+      />
+      <Button onClick={handleSubmit} label="Comparar Preços" />
+      <div className="w-full">
+        <TableComparePrices informations={result} />{" "}
+      </div>
     </div>
   );
 };
